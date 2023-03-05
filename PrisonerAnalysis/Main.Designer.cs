@@ -40,11 +40,11 @@
             dataGridView.AllowUserToOrderColumns = true;
             dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(11, 87);
+            dataGridView.Location = new Point(11, 22);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowTemplate.Height = 25;
-            dataGridView.Size = new Size(985, 297);
+            dataGridView.Size = new Size(985, 362);
             dataGridView.TabIndex = 0;
             dataGridView.ColumnHeaderMouseClick += dataGridView_ColumnHeaderMouseClick;
             // 
@@ -69,6 +69,7 @@
             Controls.Add(dataGridView);
             Name = "Main";
             Text = "Prisoner Analysis";
+            Load += Main_Load;
             DragDrop += Main_DragDrop;
             DragOver += Main_DragOver;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 namespace PrisonerAnalysis
 {
     public partial class Main : Form
-    {        
+    {
         private int newSortColumn;
         private ListSortDirection newColumnDirection = ListSortDirection.Ascending;
 
@@ -24,25 +24,31 @@ namespace PrisonerAnalysis
 
         private void Main_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            try
             {
-                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                List<Prisoner> prisoners = new List<Prisoner>();
-                prisoners = File.ReadAllLines(files[0])
-                                           .Skip(3)
-                                           .SkipLast(2)
-                                           .Select(v => Prisoner.FromCsv(v))
-                                           .ToList();
-              
-                dataGridView.DataSource = new SortableBindingList<Prisoner>(prisoners);
-
-
-                foreach (DataGridViewColumn column in dataGridView.Columns)
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 {
-                    column.SortMode = DataGridViewColumnSortMode.Automatic;
-                }
+                    string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
+                    List<Prisoner> prisoners = new List<Prisoner>();
+                    prisoners = File.ReadAllLines(files[0])
+                                               .Skip(3)
+                                               .SkipLast(2)
+                                               .Select(v => Prisoner.FromCsv(v))
+                                               .ToList();
+
+                    dataGridView.DataSource = new SortableBindingList<Prisoner>(prisoners);
+
+                    foreach (DataGridViewColumn column in dataGridView.Columns)
+                    {
+                        column.SortMode = DataGridViewColumnSortMode.Automatic;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("File format was incorrect. " + ex.Message, "Error Found");
             }
         }
 
@@ -85,6 +91,11 @@ namespace PrisonerAnalysis
                 }
             }
         }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
 }
