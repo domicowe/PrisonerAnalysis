@@ -20,7 +20,7 @@ namespace PrisonerAnalysis
         {
             string[] values = csvLine.Split(',');
             Prisoner prisoner = new Prisoner();
-            if (!values[0].StartsWith("Total") && !values[0].StartsWith("Printed"))
+            if (!values[0].StartsWith("Total") && !values[0].StartsWith("Printed") && !values[0].StartsWith("Washington") && !values[0].StartsWith("Jail") && !values[0].StartsWith("Inmate"))
             {              
                 prisoner.Id = values[0];
                 prisoner.Name = values[1] + values[2];
