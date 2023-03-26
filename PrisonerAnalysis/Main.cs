@@ -32,10 +32,10 @@ namespace PrisonerAnalysis
 
                     List<Prisoner> prisoners = new List<Prisoner>();
                     prisoners = File.ReadAllLines(files[0])
-                                               .Skip(3)
-                                               .SkipLast(2)
-                                               .Select(v => Prisoner.FromCsv(v))
-                                               .ToList();
+                                           .Skip(3)
+                                           .SkipLast(2)
+                                           .Select(v => Prisoner.FromCsv(v))
+                                           .Where(p => p.BookingDate.HasValue).ToList();
 
                     dataGridView.DataSource = new SortableBindingList<Prisoner>(prisoners);
 
@@ -92,10 +92,41 @@ namespace PrisonerAnalysis
             }
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void dataGridView_DataSourceChanged(object sender, EventArgs e)
         {
-
+            ColorMe();
         }
+
+        private void ColorMe()
+        {
+            int thirtyDays = 0;
+            int seventyTwoHours = 0;
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (Convert.ToInt32(row.Cells["HoursInPrison"].Value) > 72)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightBlue;
+
+                    seventyTwoHours++;
+                }
+                if (Convert.ToInt32(row.Cells["DayInPrison"].Value) > 30)
+                {
+                    row.DefaultCellStyle.BackColor = Color.LightYellow;
+                    //  row.Cells["DayInPrison"].Style.BackColor = Color.Red;
+                    thirtyDays++;
+                }
+            }
+            dataGridView.Columns["HoursInPrison"].Visible = false;
+
+            lblThirtyDays.Text = thirtyDays.ToString();
+            lblSeventyTwoHours.Text = seventyTwoHours.ToString();
+        }
+
+        private void dataGridView_Sorted(object sender, EventArgs e)
+        {
+            ColorMe();
+        }
+
     }
 
 }

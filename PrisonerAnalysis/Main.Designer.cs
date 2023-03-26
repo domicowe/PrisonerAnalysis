@@ -30,6 +30,10 @@
         {
             dataGridView = new DataGridView();
             btnClose = new Button();
+            label1 = new Label();
+            lblSeventyTwoHours = new Label();
+            label3 = new Label();
+            lblThirtyDays = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -44,9 +48,11 @@
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowTemplate.Height = 25;
-            dataGridView.Size = new Size(985, 362);
+            dataGridView.Size = new Size(985, 317);
             dataGridView.TabIndex = 0;
+            dataGridView.DataSourceChanged += dataGridView_DataSourceChanged;
             dataGridView.ColumnHeaderMouseClick += dataGridView_ColumnHeaderMouseClick;
+            dataGridView.Sorted += dataGridView_Sorted;
             // 
             // btnClose
             // 
@@ -59,26 +65,74 @@
             btnClose.UseVisualStyleBackColor = true;
             btnClose.Click += btnClose_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new Point(496, 385);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 15);
+            label1.TabIndex = 2;
+            label1.Text = "> 72 hrs";
+            // 
+            // lblSeventyTwoHours
+            // 
+            lblSeventyTwoHours.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblSeventyTwoHours.AutoSize = true;
+            lblSeventyTwoHours.Location = new Point(560, 385);
+            lblSeventyTwoHours.Name = "lblSeventyTwoHours";
+            lblSeventyTwoHours.Size = new Size(38, 15);
+            lblSeventyTwoHours.TabIndex = 3;
+            lblSeventyTwoHours.Text = "label2";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(737, 385);
+            label3.Name = "label3";
+            label3.Size = new Size(57, 15);
+            label3.TabIndex = 4;
+            label3.Text = "> 30 days";
+            // 
+            // lblThirtyDays
+            // 
+            lblThirtyDays.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            lblThirtyDays.AutoSize = true;
+            lblThirtyDays.Location = new Point(801, 385);
+            lblThirtyDays.Name = "lblThirtyDays";
+            lblThirtyDays.Size = new Size(38, 15);
+            lblThirtyDays.TabIndex = 5;
+            lblThirtyDays.Text = "label4";
+            // 
             // Main
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 450);
+            Controls.Add(lblThirtyDays);
+            Controls.Add(label3);
+            Controls.Add(lblSeventyTwoHours);
+            Controls.Add(label1);
             Controls.Add(btnClose);
             Controls.Add(dataGridView);
             Name = "Main";
             Text = "Prisoner Analysis";
-            Load += Main_Load;
             DragDrop += Main_DragDrop;
             DragOver += Main_DragOver;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView;
         private Button btnClose;
+        private Label label1;
+        private Label lblSeventyTwoHours;
+        private Label label3;
+        private Label lblThirtyDays;
     }
 }

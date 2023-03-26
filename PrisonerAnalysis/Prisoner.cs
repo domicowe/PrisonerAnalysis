@@ -33,7 +33,6 @@ namespace PrisonerAnalysis
                     prisoner.ReleaseDate = tempDate;               
             }
             return prisoner;
-
         }
 
         public bool IsReleased
@@ -59,6 +58,26 @@ namespace PrisonerAnalysis
                     return (int)Math.Floor(diff.TotalDays);
                 }    
             }
-        }      
+        }
+        public int HoursInPrison
+        {
+            get
+            {
+                if (!BookingDate.HasValue)
+                {
+                    return 0;
+                }
+                if (ReleaseDate.HasValue)
+                {
+                    TimeSpan diff = ReleaseDate.Value - BookingDate.Value;
+                    return (int)Math.Floor(diff.TotalHours);
+                }
+                else
+                {
+                    TimeSpan diff = DateTime.Now - BookingDate.Value;
+                    return (int)Math.Floor(diff.TotalHours);
+                }
+            }
+        }
     }
 }
