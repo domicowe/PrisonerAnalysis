@@ -36,6 +36,7 @@
             lblThirtyDays = new Label();
             label2 = new Label();
             label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -123,9 +124,19 @@
             label4.AutoSize = true;
             label4.Location = new Point(801, 410);
             label4.Name = "label4";
-            label4.Size = new Size(17, 15);
+            label4.Size = new Size(28, 15);
             label4.TabIndex = 7;
-            label4.Text = "--";
+            label4.Text = "0.00";
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Location = new Point(825, 410);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 15);
+            label5.TabIndex = 8;
+            label5.Text = "%";
             // 
             // Main
             // 
@@ -133,6 +144,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1008, 450);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(lblThirtyDays);
@@ -160,5 +172,6 @@
         private Label lblThirtyDays;
         private Label label2;
         private Label label4;
+        private Label label5;
     }
 }
