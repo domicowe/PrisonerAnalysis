@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using System.ComponentModel;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace PrisonerAnalysis
@@ -42,6 +43,8 @@ namespace PrisonerAnalysis
                     foreach (DataGridViewColumn column in dataGridView.Columns)
                     {
                         column.SortMode = DataGridViewColumnSortMode.Automatic;
+                        if (column.Name != "PREAfinished")
+                            column.ReadOnly = true;
                     }
 
                 }
@@ -127,6 +130,23 @@ namespace PrisonerAnalysis
             ColorMe();
         }
 
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var total = 0;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["PREAfinished"].EditedFormattedValue) == true)
+                {
+                    total++;
+                }
+            }
+            decimal ThirtyDays = Convert.ToDecimal(lblThirtyDays.Text);
+            decimal PREAperc = Convert.ToDecimal(total) / ThirtyDays;
+            label4.Text = (Math.Round(PREAperc*100, 2)).ToString();
+        }
+
+ 
     }
 
 }

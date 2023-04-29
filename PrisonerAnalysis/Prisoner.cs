@@ -15,6 +15,7 @@ namespace PrisonerAnalysis
         public string? Sex { get; set; }
         public DateTime? BookingDate { get; set; }
         public DateTime? ReleaseDate { get; set; }
+        public bool PREAfinished { get; set; }
 
         public static Prisoner FromCsv(string csvLine)
         {
@@ -35,10 +36,6 @@ namespace PrisonerAnalysis
             return prisoner;
         }
 
-        public bool IsReleased
-        {
-            get { return ReleaseDate.HasValue; }             
-        }
 
         public int DayInPrison
         {
