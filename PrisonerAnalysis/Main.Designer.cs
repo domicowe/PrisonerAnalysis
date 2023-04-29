@@ -109,21 +109,23 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(756, 410);
+            label2.Location = new Point(700, 410);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(95, 15);
             label2.TabIndex = 6;
-            label2.Text = "label2";
+            label2.Text = "% Finished PREA";
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Location = new Point(801, 410);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(17, 15);
             label4.TabIndex = 7;
-            label4.Text = "label4";
+            label4.Text = "--";
             // 
             // Main
             // 

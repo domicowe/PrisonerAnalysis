@@ -143,10 +143,10 @@ namespace PrisonerAnalysis
             }
             decimal ThirtyDays = Convert.ToDecimal(lblThirtyDays.Text);
             decimal PREAperc = Convert.ToDecimal(total) / ThirtyDays;
-            label4.Text = (Math.Round(PREAperc*100, 2)).ToString();
+            label4.Text = (Math.Round(PREAperc * 100, 2)).ToString();
         }
 
- 
+
     }
 
 }
