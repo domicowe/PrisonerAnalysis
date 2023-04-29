@@ -81,9 +81,9 @@
             lblSeventyTwoHours.AutoSize = true;
             lblSeventyTwoHours.Location = new Point(560, 385);
             lblSeventyTwoHours.Name = "lblSeventyTwoHours";
-            lblSeventyTwoHours.Size = new Size(38, 15);
+            lblSeventyTwoHours.Size = new Size(17, 15);
             lblSeventyTwoHours.TabIndex = 3;
-            lblSeventyTwoHours.Text = "label2";
+            lblSeventyTwoHours.Text = "--";
             // 
             // label3
             // 
@@ -101,9 +101,9 @@
             lblThirtyDays.AutoSize = true;
             lblThirtyDays.Location = new Point(801, 385);
             lblThirtyDays.Name = "lblThirtyDays";
-            lblThirtyDays.Size = new Size(38, 15);
+            lblThirtyDays.Size = new Size(17, 15);
             lblThirtyDays.TabIndex = 5;
-            lblThirtyDays.Text = "label4";
+            lblThirtyDays.Text = "--";
             // 
             // Main
             // 
